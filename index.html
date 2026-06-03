@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Улица Орвелиани | Грузинский ресторан</title>
+  <meta
+    name="description"
+    content="Грузинский ресторан «Улица Орвелиани»: хачапури, хинкали, шашлык, домашнее вино и тёплая атмосфера гостеприимства."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://commons.wikimedia.org">
+  <link rel="preconnect" href="https://upload.wikimedia.org">
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="splash-screen" id="splash-screen" aria-hidden="true">
+    <div class="splash-screen__inner">
+      <img
+        class="splash-screen__logo"
+        src="logo.png"
+        alt="Улица Орвелиани"
+        onerror="this.style.display='none'; this.nextElementSibling.hidden=false;"
+      >
+      <div class="splash-screen__fallback" hidden>
+        <span class="splash-screen__script">Улица</span>
+        <span class="splash-screen__title">Орвелиани</span>
+        <span class="splash-screen__subtitle">Грузинский ресторан</span>
+      </div>
+      <div class="splash-screen__loader" aria-hidden="true">
+        <span class="splash-screen__loader-bar"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-shell">
+    <header class="hero" id="top">
+      <nav class="nav">
+        <a class="brand" href="#top">
+          <span class="brand-mark">У</span>
+          <span class="brand-text">
+            <strong>Улица Орвелиани</strong>
+            <small>грузинский ресторан</small>
+          </span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#about">О ресторане</a>
+          <a href="#menu">Меню</a>
+          <a href="food-gallery.html">Фото блюд</a>
+          <a href="#space">Атмосфера</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+      </nav>
+
+      <section class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Тбилисское настроение в современном городе</p>
+          <h1>Тёплый грузинский ресторан для семейных ужинов, встреч и праздников</h1>
+          <p class="hero-text">
+            Ароматный шашлык, сочные хинкали, хрустящий хачапури и домашнее вино.
+            Всё, за что любят настоящую грузинскую кухню, мы собрали в одном месте.
+          </p>
+
+          <div class="hero-actions">
+            <button type="button" class="button button-primary js-open-booking">
+              Забронировать стол
+            </button>
+            <a class="button button-secondary" href="#menu">Посмотреть меню</a>
+          </div>
+
+          <ul class="hero-highlights">
+            <li>Живая атмосфера и семейное гостеприимство</li>
+            <li>Авторская подача классических блюд</li>
+            <li>Банкеты, дни рождения и уютные ужины</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="logo-card">
+            <p class="logo-kicker">Фирменный стиль</p>
+            <div class="logo-lockup">
+              <span class="logo-script">Улица</span>
+              <span class="logo-title">Орвелиани</span>
+            </div>
+            <p class="logo-subtitle">Грузинский ресторан</p>
+            <p class="logo-note">
+              Цветовая палитра и настроение страницы собраны по вашему логотипу:
+              тёплый кремовый фон, винный акцент и глубокий зелёный тон.
+            </p>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="section about" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">О ресторане</p>
+          <h2>Место, где еда звучит как приглашение в гости</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="info-card">
+            <h3>Традиции</h3>
+            <p>
+              Мы бережно сохраняем узнаваемые вкусы грузинской кухни: насыщенные бульоны,
+              специи, свежую зелень, сыр, тесто ручной работы и открытый огонь.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Повод собраться</h3>
+            <p>
+              Пространство подойдёт и для уютного семейного ужина, и для праздника с
+              друзьями. У нас комфортно и днём, и поздним вечером.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Гостеприимство</h3>
+            <p>
+              В основе сервиса простая идея: каждый гость должен почувствовать себя не
+              посетителем, а желанным другом дома.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section menu" id="menu">
+        <div class="section-heading">
+          <p class="eyebrow">Меню</p>
+          <h2>Избранные позиции основного меню</h2>
+        </div>
+
+        <div class="menu-intro menu-intro--solo">
+          <p>
+            Меню короче прежнего: оставили самое востребованное. Нажмите на блюдо — откроется фото и краткое описание.
+          </p>
+        </div>
+
+        <div class="menu-board">
+          <article class="menu-panel">
+            <span class="menu-tag">Закуски</span>
+            <h3>Холодные блюда и стартеры</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Тарелка домашних солений" data-price="650" data-desc="Ассорти солений и маринадов — яркое начало застолья. Отлично к лавашу и первому бокалу." data-img="food_images/01.jpg">
+                  <span class="menu-item__name">Тарелка домашних солений</span><strong class="menu-item__price">650</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Тарелка свежих овощей" data-price="610" data-desc="Сезонные овощи и зелень с лёгкой заправкой — освежает перед основными блюдами." data-img="food_images/02.jpg">
+                  <span class="menu-item__name">Тарелка свежих овощей</span><strong class="menu-item__price">610</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Тарелка грузинских сыров" data-price="730" data-desc="Подборка сыров с характерной ферментацией — к вину, мёду и спокойной беседе." data-img="food_images/03.jpg">
+                  <span class="menu-item__name">Тарелка грузинских сыров</span><strong class="menu-item__price">730</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Тарелка грузинских закусок" data-price="810" data-desc="Несколько мезе на одной доске: удобно делиться за столом." data-img="food_images/04.jpg">
+                  <span class="menu-item__name">Тарелка грузинских закусок</span><strong class="menu-item__price">810</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Икра из баклажанов" data-price="430" data-desc="Паста из запечённых баклажанов с орехами и специями — классика кавказской закуски." data-img="food_images/05.jpg">
+                  <span class="menu-item__name">Икра из баклажанов</span><strong class="menu-item__price">430</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Рулетики из баклажанов" data-price="550" data-desc="Тонкие рулеты с орехово-чесночной начинкой: ароматно и без тяжести." data-img="food_images/06.jpg">
+                  <span class="menu-item__name">Рулетики из баклажанов</span><strong class="menu-item__price">550</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Ассорти пхали" data-price="450" data-desc="Несколько видов пхали от кухни: разные овощи, орехи и специи в одной подаче." data-img="food_images/07.jpg">
+                  <span class="menu-item__name">Ассорти пхали</span><strong class="menu-item__price">450</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Сациви из курицы" data-price="490" data-desc="Курица в густом ореховом соусе со специями, подаётся остывшей — мягко и глубоко." data-img="food_images/08.jpg">
+                  <span class="menu-item__name">Сациви из курицы</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Салаты</span>
+            <h3>Свежие и тёплые позиции</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Салат из свежих овощей" data-price="490" data-desc="Хрустящие овощи и зелень — лёгкое дополнение к мангалу и хачапури." data-img="food_images/09.jpg">
+                  <span class="menu-item__name">Салат из свежих овощей</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Салат из свежих овощей с грецким орехом" data-price="530" data-desc="Добавляем орех для насыщенности и новой текстуры." data-img="food_images/10.jpg">
+                  <span class="menu-item__name">Салат из свежих овощей с грецким орехом</span><strong class="menu-item__price">530</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Тёплый салат с куриной печенью" data-price="490" data-desc="Нежная печень и тёплые компоненты в одной тарелке." data-img="food_images/11.jpg">
+                  <span class="menu-item__name">Тёплый салат с куриной печенью</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Салат Бахор с говядиной и свежими овощами" data-price="530" data-desc="Сочная говядина, маринад и овощи — сытно без лишней тяжести." data-img="food_images/12.jpg">
+                  <span class="menu-item__name">Салат Бахор с говядиной и свежими овощами</span><strong class="menu-item__price">530</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хит пряный салат из рваной говядины" data-price="590" data-desc="Томлёное мясо со специями и яркой ноткой дымка." data-img="food_images/13.jpg">
+                  <span class="menu-item__name">Хит пряный салат из рваной говядины</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Ацецили" data-price="550" data-desc="Тёплый салат с пикантной заправкой и насыщенным вкусом мяса." data-img="food_images/14.jpg">
+                  <span class="menu-item__name">Ацецили</span><strong class="menu-item__price">550</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Салат с имеретинским сыром" data-price="530" data-desc="Расплавленный сулугуни и свежие нотки — очень по-грузински." data-img="food_images/15.jpg">
+                  <span class="menu-item__name">Салат с имеретинским сыром</span><strong class="menu-item__price">530</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хит тбилисский с говядиной" data-price="590" data-desc="Фирменное сочетание специй и говядины с характером." data-img="food_images/16.jpg">
+                  <span class="menu-item__name">Хит тбилисский с говядиной</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Горячее</span>
+            <h3>Основные блюда</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Оджахури из курицы" data-price="590" data-desc="Курица с картофелем и специями в золотистой корочке — домашний аромат сковороды." data-img="food_images/17.jpg">
+                  <span class="menu-item__name">Оджахури из курицы</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Оджахури из свинины" data-price="610" data-desc="Сочная свинина с овощами и картофелем — сытно и по-домашнему." data-img="food_images/18.jpg">
+                  <span class="menu-item__name">Оджахури из свинины</span><strong class="menu-item__price">610</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Оджахури из баранины" data-price="730" data-desc="Баранина с глубиной вкуса и мягкой текстурой при правильной обжарке." data-img="food_images/19.jpg">
+                  <span class="menu-item__name">Оджахури из баранины</span><strong class="menu-item__price">730</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хит солянка по-грузински" data-price="590" data-desc="Насыщенный бульон, дымок и щедрая начинка — согревает и насыщает." data-img="food_images/20.jpg">
+                  <span class="menu-item__name">Хит солянка по-грузински</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Чашушули" data-price="690" data-desc="Перцы с томатами и мясом, томлённые до густоты — сладковато и дымно." data-img="food_images/21.jpg">
+                  <span class="menu-item__name">Чашушули</span><strong class="menu-item__price">690</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Плов с бараниной" data-price="590" data-desc="Рассыпчатый рис и ароматное мясо до золотистой корочки сверху." data-img="food_images/22.jpg">
+                  <span class="menu-item__name">Плов с бараниной</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Котлеты из говядины и свинины" data-price="490" data-desc="Рубленые котлеты с сочным центром — любят и дети, и взрослые." data-img="food_images/23.jpg">
+                  <span class="menu-item__name">Котлеты из говядины и свинины</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Картофель жареный с грибами" data-price="430" data-desc="Золотистый картофель с лесным ароматом грибов — уютный гарнир или самостоятельная позиция." data-img="food_images/24.jpg">
+                  <span class="menu-item__name">Картофель жареный с грибами</span><strong class="menu-item__price">430</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Курица по-мергельски" data-price="490" data-desc="Филе в густом сырном соусе со специями — мягко и ароматно." data-img="food_images/25.jpg">
+                  <span class="menu-item__name">Курица по-мергельски</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Запечённый сулугуни с томатами на кеци" data-price="490" data-desc="Расплавленный сыр с томатами в горячей глиняной посуде." data-img="food_images/26.jpg">
+                  <span class="menu-item__name">Запечённый сулугуни с томатами на кеци</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Цыплёнок тапака" data-price="750" data-desc="Под прессом до хрустящей корочки: сочное мясо внутри и праздничная подача." data-img="food_images/27.jpg">
+                  <span class="menu-item__name">Цыплёнок тапака</span><strong class="menu-item__price">750</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Мангал</span>
+            <h3>Шашлык и блюда на углях</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Шашлык из курицы" data-price="590" data-desc="Маринованное мясо на углях: сочность внутри и лёгкая корочка." data-img="food_images/28.jpg">
+                  <span class="menu-item__name">Шашлык из курицы</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Шашлык из курицы с овощами" data-price="610" data-desc="Курица с перцами и луком — сочнее и ароматнее." data-img="food_images/29.jpg">
+                  <span class="menu-item__name">Шашлык из курицы с овощами</span><strong class="menu-item__price">610</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Шашлык из индейки" data-price="610" data-desc="Нежная птица с дымной корочкой — легче, но без потери вкуса." data-img="food_images/30.jpg">
+                  <span class="menu-item__name">Шашлык из индейки</span><strong class="menu-item__price">610</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Шашлык из свинины" data-price="650" data-desc="Классика мангала: сочность и сладковатый дым." data-img="food_images/31.jpg">
+                  <span class="menu-item__name">Шашлык из свинины</span><strong class="menu-item__price">650</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Шашлык из мякоти ягнёнка" data-price="950" data-desc="Мягкая баранина с лёгкой жирностью — для особого вечера." data-img="food_images/32.jpg">
+                  <span class="menu-item__name">Шашлык из мякоти ягнёнка</span><strong class="menu-item__price">950</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Шашлык из каре ягнёнка" data-price="1350" data-desc="Премиальная нарезка на кости — сочность и эффектная подача." data-img="food_images/33.jpg">
+                  <span class="menu-item__name">Шашлык из каре ягнёнка</span><strong class="menu-item__price">1350</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Люля-кебаб курица" data-price="490" data-desc="Фарш на шампуре со специями — удобно есть с соусом и лавашом." data-img="food_images/34.jpg">
+                  <span class="menu-item__name">Люля-кебаб курица</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Люля-кебаб говядина" data-price="590" data-desc="Плотнее и насыщеннее: отлично с ткемали." data-img="food_images/35.jpg">
+                  <span class="menu-item__name">Люля-кебаб говядина</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Ассорти шашлыков" data-price="3790" data-desc="Большая мясная композиция на компанию — разные виды на одной подаче." data-img="food_images/36.jpg">
+                  <span class="menu-item__name">Ассорти шашлыков</span><strong class="menu-item__price">3790</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Хинкали и супы</span>
+            <h3>Классика грузинского стола</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хинкали свинина и говядина" data-price="330" data-desc="Классическая начинка, тонкое тесто и бульон внутри — едят руками." data-img="food_images/37.jpg">
+                  <span class="menu-item__name">Хинкали свинина и говядина</span><strong class="menu-item__price">330</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хинкали баранина" data-price="330" data-desc="Более насыщенный вкус баранины — для любителей глубины." data-img="food_images/38.jpg">
+                  <span class="menu-item__name">Хинкали баранина</span><strong class="menu-item__price">330</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Дополнительно" data-price="115" data-desc="Доплата за порцию или позицию по согласованию с официантом." data-img="food_images/39.jpg">
+                  <span class="menu-item__name">Дополнительно</span><strong class="menu-item__price">115</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Суп куриный" data-price="390" data-desc="Лёгкий наваристый бульон с мягким мясом." data-img="food_images/40.jpg">
+                  <span class="menu-item__name">Суп куриный</span><strong class="menu-item__price">390</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Борщ" data-price="470" data-desc="Знакомый баланс свёклы и насыщенного бульона." data-img="food_images/41.jpg">
+                  <span class="menu-item__name">Борщ</span><strong class="menu-item__price">470</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хит харчо" data-price="550" data-desc="Острый густой суп с рисом и специями — бодрит аппетит." data-img="food_images/42.jpg">
+                  <span class="menu-item__name">Хит харчо</span><strong class="menu-item__price">550</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Гарниры и хлеб</span>
+            <h3>Дополнения к основным блюдам</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Овощи на гриле" data-price="410" data-desc="Карамелизированные овощи с дымком — лёгкий контраст к мясу." data-img="food_images/43.jpg">
+                  <span class="menu-item__name">Овощи на гриле</span><strong class="menu-item__price">410</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Пюре картофельное" data-price="250" data-desc="Воздушное пюре — классика рядом с соком от шашлыка." data-img="food_images/44.jpg">
+                  <span class="menu-item__name">Пюре картофельное</span><strong class="menu-item__price">250</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Рис" data-price="230" data-desc="Рассыпчатый рис, который собирает соусы и соки с тарелки." data-img="food_images/45.jpg">
+                  <span class="menu-item__name">Рис</span><strong class="menu-item__price">230</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Армянский лаваш" data-price="150" data-desc="Тонкий тёплый лаваш — к мясу, сыру и соусам." data-img="food_images/46.jpg">
+                  <span class="menu-item__name">Армянский лаваш</span><strong class="menu-item__price">150</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Пури с соусом сацебели" data-price="150" data-desc="Лепёшка с томатно-чесночным сацебели." data-img="food_images/47.jpg">
+                  <span class="menu-item__name">Пури с соусом сацебели</span><strong class="menu-item__price">150</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хлебная корзина" data-price="250" data-desc="Несколько видов хлеба и лепёшек к вашему столу." data-img="food_images/48.jpg">
+                  <span class="menu-item__name">Хлебная корзина</span><strong class="menu-item__price">250</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Соусы</span>
+            <h3>Фирменные дополнения</h3>
+            <ul class="menu-list menu-list-compact">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Аджика красная" data-price="110" data-desc="Острая и ароматная — к мясу и лавашу." data-img="food_images/49.jpg">
+                  <span class="menu-item__name">Аджика красная</span><strong class="menu-item__price">110</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Аджика зелёная" data-price="110" data-desc="Свежая острота зелени и чеснока." data-img="food_images/50.jpg">
+                  <span class="menu-item__name">Аджика зелёная</span><strong class="menu-item__price">110</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Сацебели" data-price="110" data-desc="Томатно-чесночная классика к мангалу и хлебу." data-img="food_images/51.jpg">
+                  <span class="menu-item__name">Сацебели</span><strong class="menu-item__price">110</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Чкмерули" data-price="110" data-desc="Сливочно-чесночный соус — знакомый акцент к многим блюдам." data-img="food_images/52.jpg">
+                  <span class="menu-item__name">Чкмерули</span><strong class="menu-item__price">110</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Сметана" data-price="110" data-desc="Смягчает специи и освежает горячее." data-img="food_images/53.jpg">
+                  <span class="menu-item__name">Сметана</span><strong class="menu-item__price">110</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Ткемали" data-price="110" data-desc="Кисло-сладкий сливовый соус — must-have к шашлыку." data-img="food_images/54.jpg">
+                  <span class="menu-item__name">Ткемали</span><strong class="menu-item__price">110</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Выпечка</span>
+            <h3>Хачапури, пироги и традиционное тесто</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Ачма" data-price="490" data-desc="Слоёная запеканка с сыром — хрустящие края и нежный центр." data-img="food_images/55.jpg">
+                  <span class="menu-item__name">Ачма</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Пирог с картофелем и сыром сулугуни" data-price="490" data-desc="Сытный пирог: картофель и тянущийся сыр в мягком тесте." data-img="food_images/56.jpg">
+                  <span class="menu-item__name">Пирог с картофелем и сыром сулугуни</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хачапури на мангале" data-price="510" data-desc="Лепёшка с сыром с ноткой дымка от углей." data-img="food_images/57.jpg">
+                  <span class="menu-item__name">Хачапури на мангале</span><strong class="menu-item__price">510</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хачапури по-аджарски" data-price="550" data-desc="«Лодочка» с яйцом и маслом — размешать и насладиться." data-img="food_images/58.jpg">
+                  <span class="menu-item__name">Хачапури по-аджарски</span><strong class="menu-item__price">550</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хачапури по-имеретински" data-price="590" data-desc="Сыр внутри теста — рвём руками и делимся порциями." data-img="food_images/59.jpg">
+                  <span class="menu-item__name">Хачапури по-имеретински</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хачапури по-мегрельски" data-price="590" data-desc="Сыр внутри и сыр сверху — для любителей насыщенного вкуса." data-img="food_images/60.jpg">
+                  <span class="menu-item__name">Хачапури по-мегрельски</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Хит хачапури по-домашнему" data-price="590" data-desc="Фирменная подача от шефа — сытно и по-настоящему ароматно." data-img="food_images/61.jpg">
+                  <span class="menu-item__name">Хит хачапури по-домашнему</span><strong class="menu-item__price">590</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel">
+            <span class="menu-tag">Десерты</span>
+            <h3>Сладкое завершение ужина</h3>
+            <ul class="menu-list">
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Мороженое" data-price="150" data-desc="Холодный десерт — варианты уточняйте у официанта." data-img="food_images/62.jpg">
+                  <span class="menu-item__name">Мороженое</span><strong class="menu-item__price">150</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Грузинское варенье" data-price="250" data-desc="Густое варенье с орехом — идеально к чаю после застолья." data-img="food_images/63.jpg">
+                  <span class="menu-item__name">Грузинское варенье</span><strong class="menu-item__price">250</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Мацони с мёдом и орехами" data-price="350" data-desc="Кисло-молочная нежность с мёдом и хрустящим орехом." data-img="food_images/64.jpg">
+                  <span class="menu-item__name">Мацони с мёдом и орехами</span><strong class="menu-item__price">350</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Пахлава" data-price="390" data-desc="Слоёстый десерт с орехом и сиропом — сладкий финал вечера." data-img="food_images/65.jpg">
+                  <span class="menu-item__name">Пахлава</span><strong class="menu-item__price">390</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Морковный торт" data-price="470" data-desc="Влажные коржи со специями и кремом — знакомый комфорт." data-img="food_images/66.jpg">
+                  <span class="menu-item__name">Морковный торт</span><strong class="menu-item__price">470</strong>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="menu-item js-dish-detail" data-title="Шоколадный фондан" data-price="490" data-desc="Тёплый кекс с жидким центром для любителей шоколада." data-img="food_images/67.jpg">
+                  <span class="menu-item__name">Шоколадный фондан</span><strong class="menu-item__price">490</strong>
+                </button>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-panel menu-panel-featured">
+            <span class="menu-tag">Грузинское застолье</span>
+            <h3>Сет для большой компании</h3>
+            <button type="button" class="feast-card js-dish-detail" data-title="Грузинское застолье на 8 персон" data-price="9700" data-desc="Большой стол: ассорти шашлыков и люля-кебабов, хинкали, ассорти пхали, рулетики из баклажана и хачапури по-имеретински. Состав уточняйте у администратора — подстроим под праздник." data-img="food_images/68.jpg">
+              <div class="feast-card__text">
+                <h4>На 8 персон</h4>
+                <p>Шашлыки, люля, хинкали, пхали, баклажаны и хачапури — праздник на одной подаче.</p>
+              </div>
+              <strong class="feast-card__price">9700</strong>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section space" id="space">
+        <div class="section-heading">
+          <p class="eyebrow">Атмосфера</p>
+          <h2>Спокойный свет, тёплые фактуры и акценты виноградной палитры</h2>
+        </div>
+
+        <div class="space-layout">
+          <div class="quote-card">
+            <p>
+              «Хороший грузинский ресторан начинается не с меню, а с ощущения,
+              что вас здесь действительно ждали».
+            </p>
+          </div>
+          <div class="details-list">
+            <div>
+              <span>01</span>
+              <p>Зал для спокойных семейных встреч и вечерних ужинов</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p>Подходит для банкетов, дней рождения и камерных событий</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p>Музыка, подача и сервис поддерживают настроение, а не отвлекают</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contacts" id="contacts">
+        <div class="section-heading">
+          <p class="eyebrow">Контакты</p>
+          <h2>Забронируйте стол и приходите за вкусом настоящего застолья</h2>
+        </div>
+
+        <div class="contacts-grid">
+          <article class="contact-card accent">
+            <h3>Связаться с нами</h3>
+            <p><strong>Телефон:</strong> +89283547581</p>
+            <p><strong>Адрес:</strong> ул. Орвелиани, 12</p>
+            <p><strong>Время работы:</strong> ежедневно с 12:00 до 23:00</p>
+          </article>
+          <article class="contact-card">
+            <h3>Для гостей</h3>
+            <p>Бронирование столов, семейные вечера, банкеты и специальные предложения.</p>
+            <div class="contact-card__actions">
+              <button type="button" class="button button-primary js-open-booking">Забронировать стол</button>
+              <a class="button button-secondary" href="tel:+89283547581">Позвонить сейчас</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div
+    class="modal-overlay"
+    id="booking-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="booking-modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal-window" role="document">
+      <button type="button" class="modal-close" id="booking-modal-close" aria-label="Закрыть окно">
+        &times;
+      </button>
+      <h2 id="booking-modal-title" class="modal-title">Бронирование столика</h2>
+      <p class="modal-lead">Заполните форму — мы свяжемся с вами для подтверждения.</p>
+
+      <form class="booking-form" id="booking-form" action="https://formsubmit.co/asestiarm@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Новая заявка на бронь стола">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden>
+        <div class="field">
+          <label for="booking-date">Дата брони</label>
+          <input type="date" id="booking-date" name="Дата брони" required autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="booking-name">Имя гостя</label>
+          <input type="text" id="booking-name" name="Имя гостя" required autocomplete="name" placeholder="Как к вам обращаться">
+        </div>
+        <div class="field">
+          <label for="booking-contact">Контакт для связи</label>
+          <input
+            type="text"
+            id="booking-contact"
+            name="Контакт для связи"
+            required
+            autocomplete="tel"
+            placeholder="Телефон или e-mail"
+          >
+        </div>
+        <p class="booking-form__hint" id="booking-form-hint" hidden></p>
+        <button type="submit" class="button button-primary booking-form__submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <div
+    class="modal-overlay"
+    id="dish-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="dish-modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal-window dish-modal" role="document">
+      <button type="button" class="modal-close" id="dish-modal-close" aria-label="Закрыть окно">
+        &times;
+      </button>
+      <div class="dish-modal__media">
+        <img id="dish-modal-img" class="dish-modal__img" src="" alt="" width="720" height="480" decoding="async">
+        <div id="dish-modal-img-fallback" class="dish-modal__img-fallback" hidden aria-hidden="true"></div>
+      </div>
+      <div class="dish-modal__body">
+        <h2 id="dish-modal-title" class="dish-modal__title"></h2>
+        <p id="dish-modal-price" class="dish-modal__price"></p>
+        <p id="dish-modal-kj" class="dish-modal__kj"></p>
+        <p id="dish-modal-desc" class="dish-modal__desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="food-data.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const splash = document.getElementById("splash-screen");
+      if (!splash) return;
+
+      window.setTimeout(function () {
+        splash.classList.add("is-hidden");
+        window.setTimeout(function () {
+          splash.remove();
+        }, 700);
+      }, 3500);
+    });
+
+    (function () {
+      const bookingModal = document.getElementById("booking-modal");
+      const dishModal = document.getElementById("dish-modal");
+      const form = document.getElementById("booking-form");
+      const bookingClose = document.getElementById("booking-modal-close");
+      const dishClose = document.getElementById("dish-modal-close");
+      const dateInput = document.getElementById("booking-date");
+      const hint = document.getElementById("booking-form-hint");
+      const openers = document.querySelectorAll(".js-open-booking");
+      const dishImg = document.getElementById("dish-modal-img");
+      const dishFallback = document.getElementById("dish-modal-img-fallback");
+      const dishTitleEl = document.getElementById("dish-modal-title");
+      const dishPriceEl = document.getElementById("dish-modal-price");
+      const dishKjEl = document.getElementById("dish-modal-kj");
+      const dishDescEl = document.getElementById("dish-modal-desc");
+
+      let lastFocusBooking = null;
+      let lastFocusDish = null;
+
+      function refreshBodyScrollLock() {
+        var book = bookingModal && bookingModal.classList.contains("is-active");
+        var dish = dishModal && dishModal.classList.contains("is-active");
+        document.body.style.overflow = book || dish ? "hidden" : "";
+      }
+
+      function setMinDate() {
+        if (!dateInput) return;
+        var t = new Date();
+        var y = t.getFullYear();
+        var m = String(t.getMonth() + 1).padStart(2, "0");
+        var d = String(t.getDate()).padStart(2, "0");
+        dateInput.min = y + "-" + m + "-" + d;
+      }
+
+      function openBookingModal() {
+        if (!bookingModal) return;
+        lastFocusBooking = document.activeElement;
+        bookingModal.classList.add("is-active");
+        bookingModal.setAttribute("aria-hidden", "false");
+        refreshBodyScrollLock();
+        setMinDate();
+        var first = bookingModal.querySelector("input, button:not(.modal-close)");
+        if (first) first.focus();
+      }
+
+      function closeBookingModal() {
+        if (!bookingModal) return;
+        bookingModal.classList.remove("is-active");
+        bookingModal.setAttribute("aria-hidden", "true");
+        if (hint) {
+          hint.hidden = true;
+          hint.textContent = "";
+        }
+        refreshBodyScrollLock();
+        if (lastFocusBooking && typeof lastFocusBooking.focus === "function") {
+          lastFocusBooking.focus();
+        }
+      }
+
+      function openDishModal(btn) {
+        if (!dishModal || !btn) return;
+        lastFocusDish = document.activeElement;
+        var title = btn.getAttribute("data-title") || "";
+        var price = btn.getAttribute("data-price") || "";
+        var desc = btn.getAttribute("data-desc") || "";
+        var imgUrl = btn.getAttribute("data-img") || "";
+        var foodMap = window.foodDishMap || {};
+        var normalizeFoodTitle = window.normalizeFoodTitle || function (value) {
+          return String(value || "").toLowerCase().replace(/^хит\s+/u, "").replace(/\s+/g, " ").trim();
+        };
+        var dishInfo = foodMap[normalizeFoodTitle(title)];
+        if (dishInfo && dishInfo.image) imgUrl = dishInfo.image;
+        if (dishTitleEl) dishTitleEl.textContent = title;
+        if (dishPriceEl) dishPriceEl.textContent = price ? price + " ₽" : "";
+        if (dishKjEl) dishKjEl.textContent = dishInfo && dishInfo.kj ? dishInfo.kj + " кДж" : "";
+        if (dishDescEl) dishDescEl.textContent = desc;
+        if (dishImg && dishFallback) {
+          dishImg.alt = title;
+          dishImg.onerror = function () {
+            dishImg.style.visibility = "hidden";
+            dishFallback.hidden = false;
+          };
+          dishImg.style.visibility = "";
+          if (imgUrl) {
+            dishImg.src = imgUrl;
+            dishFallback.hidden = true;
+          } else {
+            dishImg.removeAttribute("src");
+            dishImg.style.visibility = "hidden";
+            dishFallback.hidden = false;
+          }
+        }
+        dishModal.classList.add("is-active");
+        dishModal.setAttribute("aria-hidden", "false");
+        refreshBodyScrollLock();
+        if (dishClose) dishClose.focus();
+      }
+
+      function closeDishModal() {
+        if (!dishModal) return;
+        dishModal.classList.remove("is-active");
+        dishModal.setAttribute("aria-hidden", "true");
+        if (dishImg) {
+          dishImg.removeAttribute("src");
+          dishImg.style.visibility = "";
+        }
+        if (dishFallback) dishFallback.hidden = true;
+        if (dishKjEl) dishKjEl.textContent = "";
+        refreshBodyScrollLock();
+        if (lastFocusDish && typeof lastFocusDish.focus === "function") {
+          lastFocusDish.focus();
+        }
+      }
+
+      openers.forEach(function (btn) {
+        btn.addEventListener("click", openBookingModal);
+      });
+
+      if (bookingClose) bookingClose.addEventListener("click", closeBookingModal);
+
+      if (bookingModal) {
+        bookingModal.addEventListener("click", function (e) {
+          if (e.target === bookingModal) closeBookingModal();
+        });
+      }
+
+      document.addEventListener("click", function (e) {
+        var el = e.target;
+        if (!el || !el.closest) return;
+        var dishBtn = el.closest(".js-dish-detail");
+        if (dishBtn) {
+          e.preventDefault();
+          openDishModal(dishBtn);
+        }
+      });
+
+      if (dishClose) dishClose.addEventListener("click", closeDishModal);
+
+      if (dishModal) {
+        dishModal.addEventListener("click", function (e) {
+          if (e.target === dishModal) closeDishModal();
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        if (dishModal && dishModal.classList.contains("is-active")) {
+          closeDishModal();
+        } else if (bookingModal && bookingModal.classList.contains("is-active")) {
+          closeBookingModal();
+        }
+      });
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          if (!form.reportValidity()) {
+            e.preventDefault();
+            return;
+          }
+
+          if (hint) {
+            hint.hidden = false;
+            hint.className = "booking-form__hint booking-form__hint--ok";
+            hint.textContent = "Отправляем заявку на почту ресторана...";
+          }
+        });
+      }
+
+      setMinDate();
+    })();
+  </script>
+</body>
