@@ -1,0 +1,537 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CLIENT
+  VETERINARIAN
+  ADMIN
+  SUPERADMIN
+}
+
+enum AdminRole {
+  STAFF
+  MANAGER
+  ADMIN
+  SUPERADMIN
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  INCOMPLETE
+  EXPIRED
+}
+
+enum BillingCycle {
+  MONTHLY
+  YEARLY
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+  CANCELED
+}
+
+enum PetType {
+  DOG
+  CAT
+  BIRD
+  RODENT
+  REPTILE
+  OTHER
+}
+
+enum Sex {
+  MALE
+  FEMALE
+  UNKNOWN
+}
+
+enum ChatMessageStatus {
+  PENDING
+  DELIVERED
+  READ
+}
+
+model User {
+  id               String     @id @default(cuid())
+  email            String     @unique
+  phone            String?
+  passwordHash     String
+  role             UserRole   @default(CLIENT)
+  firstName        String
+  lastName         String
+  birthDate        DateTime?
+  address          String?
+  city             String?
+  avatarUrl        String?
+  isVerified       Boolean    @default(false)
+  emailVerifiedAt  DateTime?
+  verificationToken String? @unique
+  resetToken       String? @unique
+  resetExpires     DateTime?
+  lastLogin        DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  pets                Pet[]
+  appointments        Appointment[]
+  payments            Payment[]
+  reviews             Review[]
+  chatMessages        ChatMessage[]
+  subscriptions       UserSubscription[]
+  medicalRecordFields MedicalRecordFieldValue[]
+
+  @@map("users")
+}
+
+model Admin {
+  id                String     @id @default(cuid())
+  userId            String    @unique
+  role              AdminRole @default(STAFF)
+  notes             String?
+  canManageUsers    Boolean   @default(false)
+  canManageContent  Boolean   @default(false)
+  canManageBilling  Boolean   @default(false)
+  canViewAnalytics  Boolean   @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("admins")
+}
+
+model Veterinarian {
+  id                String   @id @default(cuid())
+  userId            String?  @unique
+  firstName         String
+  lastName          String
+  slug              String   @unique
+  title             String?
+  biography         String?
+  photoUrl          String?
+  experienceYears   Int      @default(0)
+  rating            Float    @default(5.0)
+  isAvailable       Boolean  @default(true)
+  socialLinks       Json?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  schedules       Schedule[]
+  appointments    Appointment[]
+  petEvaluations  PetEvaluation[]
+
+  @@map("veterinarians")
+}
+
+model Specialty {
+  id      String @id @default(cuid())
+  name    String @unique
+  slug    String @unique
+
+  veterinarians VeterinarianSpecialty[]
+  services     Service[]
+
+  @@map("specialties")
+}
+
+model VeterinarianSpecialty {
+  veterinarianId String
+  specialtyId    String
+  certifiedAt    DateTime? @default(now())
+
+  veterinarian Veterinarian @relation(fields: [veterinarianId], references: [id], onDelete: Cascade)
+  specialty    Specialty     @relation(fields: [specialtyId], references: [id], onDelete: Cascade)
+
+  @@id([veterinarianId, specialtyId])
+  @@map("veterinarian_specialties")
+}
+
+model Schedule {
+  id              String   @id @default(cuid())
+  veterinarianId  String
+  dayOfWeek       Int
+  startTime       String
+  endTime         String
+  slotDuration    Int      @default(30)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  veterinarian Veterinarian @relation(fields: [veterinarianId], references: [id], onDelete: Cascade)
+
+  @@unique([veterinarianId, dayOfWeek, startTime])
+  @@map("schedules")
+}
+
+model ServiceCategory {
+  id      String @id @default(cuid())
+  name    String @unique
+  slug    String @unique
+  sort    Int    @default(0)
+
+  services Service[]
+
+  @@map("service_categories")
+}
+
+model Service {
+  id          String  @id @default(cuid())
+  name        String
+  slug        String  @unique
+  description String?
+  price       Float
+  duration    Int
+  isUrgent    Boolean @default(false)
+  imageUrl    String?
+  isActive    Boolean @default(true)
+  categoryId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category     ServiceCategory @relation(fields: [categoryId], references: [id])
+  appointments Appointment[]
+
+  @@map("services")
+}
+
+model SubscriptionPlan {
+  id             String @id @default(cuid())
+  name          String @unique
+  price         Float
+  durationMonths Int    @default(1)
+  isActive      Boolean @default(true)
+  displayOrder  Int    @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  benefits SubscriptionBenefit[]
+  subscriptions UserSubscription[]
+
+  @@map("subscription_plans")
+}
+
+model SubscriptionBenefit {
+  id        String     @id @default(cuid())
+  description String
+  order     Int
+  planId    String
+  createdAt DateTime @default(now())
+
+  plan SubscriptionPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+
+  @@index([planId, order])
+  @@map("subscription_benefits")
+}
+
+model UserSubscription {
+  id                  String             @id @default(cuid())
+  userId              String
+  planId              String
+  status              SubscriptionStatus @default(ACTIVE)
+  billingCycle        BillingCycle
+  startDate           DateTime
+  currentPeriodStart  DateTime
+  currentPeriodEnd    DateTime
+  cancelAtPeriodEnd   Boolean @default(false)
+  canceledAt          DateTime?
+  stripeSubscriptionId String? @unique
+  stripePriceId       String? @unique
+  autoRenew           Boolean @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  user     User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan     SubscriptionPlan  @relation(fields: [planId], references: [id])
+  payments Payment[]
+
+  @@map("user_subscriptions")
+}
+
+model Pet {
+  id            String    @id @default(cuid())
+  userId        String
+  name          String
+  type          PetType
+  breed         String?
+  sex           Sex
+  dateOfBirth   DateTime?
+  weightKg      Float?
+  coatColor     String?
+  microchipId   String?   @unique
+  notes         String?
+  photoUrl      String?
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  user           User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  appointments   AppointmentPet[]
+  evaluations    PetEvaluation[]
+  medicalRecords MedicalRecord[]
+  vaccines       Vaccine[]
+
+  @@index([userId, type])
+  @@map("pets")
+}
+
+model MedicalRecord {
+  id         String   @id @default(cuid())
+  petId      String
+  vetId      String?
+  title      String
+  description String?
+  severity   MedicalRecordSeverity @default(NORMAL)
+  diagnosedAt DateTime @default(now())
+  resolvedAt DateTime?
+  attachments Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  pet   Pet             @relation(fields: [petId], references: [id], onDelete: Cascade)
+  vet   Veterinarian?   @relation(fields: [vetId], references: [id])
+  fields MedicalRecordFieldValue[]
+
+  @@index([petId, diagnosedAt])
+  @@map("medical_records")
+}
+
+enum MedicalRecordSeverity {
+  NORMAL
+  WARNING
+  CRITICAL
+}
+
+model MedicalRecordField {
+  id          String @id @default(cuid())
+  key         String
+  label       String
+  inputType   String
+  options     Json?
+  sort        Int    @default(0)
+
+  recordValues MedicalRecordFieldValue[]
+
+  @@map("medical_record_fields")
+}
+
+model MedicalRecordFieldValue {
+  id         String   @id  @default(cuid())
+  recordId   String
+  fieldId    String
+  value      String
+  userId     String?
+  createdAt  DateTime @default(now())
+
+  record MedicalRecord   @relation(fields: [recordId], references: [id], onDelete: Cascade)
+  field  MedicalRecordField @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+  user   User?            @relation(fields: [userId], references: [id])
+
+  @@unique([recordId, fieldId])
+  @@map("medical_record_field_values")
+}
+
+model Vaccine {
+  id            String      @id @default(cuid())
+  petId         String
+  name          String
+  manufacturer  String?
+  lotNumber     String?
+  administeredBy String?
+  notes         String?
+  givenAt       DateTime
+  nextDoseAt    DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  pet Pet @relation(fields: [petId], references: [id], onDelete: Cascade)
+
+  @@index([petId, nextDoseAt])
+  @@map("vaccines")
+}
+
+model Appointment {
+  id           String            @id @default(cuid())
+  userId       String
+  vetId        String
+  serviceId    String
+  status       AppointmentStatus @default(PENDING)
+  startsAt     DateTime
+  endsAt       DateTime
+  notes        String?
+  confirmationToken String? @unique
+  confirmedAt  DateTime?
+  canceledAt   DateTime?
+  cancelReason String?
+  reminderSentAt DateTime?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  user     User          @relation(fields: [userId], references: [id])
+  vet      Veterinarian  @relation(fields: [vetId], references: [id])
+  service  Service       @relation(fields: [serviceId], references: [id])
+  pets     AppointmentPet[]
+
+  @@index([userId, startsAt])
+  @@index([vetId, startsAt])
+  @@map("appointments")
+}
+
+model AppointmentPet {
+  appointmentId String
+  petId         String
+
+  appointment Appointment @relation(fields: [appointmentId], references: [id], onDelete: Cascade)
+  pet         Pet         @relation(fields: [petId], references: [id], onDelete: Cascade)
+
+  @@id([appointmentId, petId])
+  @@map("appointment_pets")
+}
+
+model PetEvaluation {
+  id            String   @id @default(cuid())
+  petId         String
+  vetId         String
+  weightKg      Float?
+  coatCondition String?
+  teethCondition String?
+  behaviorNotes String?
+  generalNotes  String?
+  evaluatedAt   DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  pet   Pet            @relation(fields: [petId], references: [id])
+  vet   Veterinarian   @relation(fields: [vetId], references: [id])
+
+  @@map("pet_evaluations")
+}
+
+model Payment {
+  id                     String       @id @default(cuid())
+  userId                 String
+  subscriptionId         String?
+  amount                 Float
+  currency               String       @default("RUB")
+  status                 PaymentStatus @default(PENDING)
+  method                 PaymentMethod @default(CARD)
+  provider               PaymentProvider @default(STRIPE)
+  stripePaymentIntentId  String? @unique
+  stripeChargeId         String? @unique
+  description            String?
+  failureCode            String?
+  failureMessage         String?
+  paidAt                 DateTime?
+  refundedAt             DateTime?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  user         User              @relation(fields: [userId], references: [id])
+  subscription UserSubscription? @relation(fields: [subscriptionId], references: [id])
+
+  @@index([userId, createdAt])
+  @@map("payments")
+}
+
+enum PaymentMethod {
+  CARD
+  BANK_TRANSFER
+  CASH
+  OTHER
+}
+
+enum PaymentProvider {
+  STRIPE
+  YOOKASSA
+  OTHER
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  serviceId String?
+  rating    Int
+  comment   String?
+  isPublished Boolean @default(false)
+  isModerated   Boolean @default(false)
+  helpfulCount  Int @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User            @relation(fields: [userId], references: [id])
+  service Service? @relation(fields: [serviceId], references: [id])
+
+  @@index([serviceId, createdAt])
+  @@map("reviews")
+}
+
+model ContactRequest {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String?
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("contact_requests")
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String?
+  content     String
+  coverImage  String?
+  isPublished Boolean  @default(false)
+  publishedAt DateTime?
+  metaTitle   String?
+  metaDescription String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("blog_posts")
+}
+
+model ChatMessage {
+  id        String            @id @default(cuid())
+  userId    String
+  role      ChatRole
+  body      String
+  status    ChatMessageStatus @default(PENDING)
+  metadata  Json?
+  createdAt DateTime          @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId, createdAt])
+  @@map("chat_messages")
+}
+
+enum ChatRole {
+  USER
+  AGENT
+  SYSTEM
+}
